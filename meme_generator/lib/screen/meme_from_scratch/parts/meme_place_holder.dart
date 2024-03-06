@@ -12,8 +12,8 @@ class _MemePlaceHolder extends StatelessWidget {
       ),
     );
 
-    final textAndImageHolder = getIt<TextHandler>();
-    final imageHolder = getIt<ImageHandler>();
+    final textStore = getIt<TextStore>();
+    final imageStore = getIt<ImageStore>();
 
     return ColoredBox(
       color: Colors.black,
@@ -38,22 +38,24 @@ class _MemePlaceHolder extends StatelessWidget {
                     padding: const EdgeInsets.all(4.0),
                     child: RepaintBoundary(
                       child: Observer(
-                        builder: (_) => imageHolder.inputWay.value ==
+                        builder: (_) => imageStore.imageHolder.inputWay.value ==
                                 InputWay.byLink
-                            ? imageHolder.imageLink.value == ''
+                            ? imageStore.imageHolder.imageLink.value == ''
                                 ? const _StockMemeImage()
                                 : CachedNetworkImage(
-                                    imageUrl: imageHolder.imageLink.value,
+                                    imageUrl:
+                                        imageStore.imageHolder.imageLink.value,
                                     fit: BoxFit.cover,
                                     placeholder: (context, url) => const Center(
                                       child: CircularProgressIndicator(),
                                     ),
                                   )
-                            : imageHolder.imageLink.value == ''
+                            : imageStore.imageHolder.imageLink.value == ''
                                 ? const _StockMemeImage()
                                 : Image(
                                     image: FileImage(
-                                      File(imageHolder.imageLink.value),
+                                      File(imageStore
+                                          .imageHolder.imageLink.value),
                                     ),
                                   ),
                       ),
@@ -63,11 +65,11 @@ class _MemePlaceHolder extends StatelessWidget {
               ),
               Observer(
                 builder: (_) => Text(
-                  textAndImageHolder.inputText.value,
+                  textStore.textHolder.inputText.value,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'Impact',
-                    fontSize: textAndImageHolder.fontSize.value,
+                    fontSize: textStore.textHolder.fontSize.value,
                     color: Colors.white,
                   ),
                 ),

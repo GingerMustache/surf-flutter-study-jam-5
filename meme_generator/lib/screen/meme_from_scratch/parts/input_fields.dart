@@ -10,15 +10,15 @@ class InputFields extends StatefulWidget {
 class InputFieldsState extends State<InputFields> {
   @override
   Widget build(BuildContext context) {
-    final textHolder = getIt<TextHandler>();
-    final imageHolder = getIt<ImageHandler>();
+    final textStore = getIt<TextStore>();
+    final imageStore = getIt<ImageStore>();
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         TextField(
           style: const TextStyle(color: AppColors.mainWhite),
-          onChanged: (value) => textHolder.tappingText(value),
+          onChanged: (value) => textStore.textHolderProvider.tappingText(value),
           decoration: InputDecoration(
               filled: true,
               fillColor: Colors.grey.withAlpha(30),
@@ -29,8 +29,8 @@ class InputFieldsState extends State<InputFields> {
         TextField(
           style: const TextStyle(color: AppColors.mainWhite),
           onSubmitted: (value) {
-            imageHolder.prepareToLink();
-            imageHolder.inputNetworkImage(value);
+            imageStore.imageHolderProvider.prepareToLink();
+            imageStore.imageHolderProvider.inputNetworkImage(value);
           },
           decoration: InputDecoration(
               filled: true,
