@@ -16,3 +16,5 @@ screen:
     textScaleUp: Text scale Up
     textScaleDown: Text scale Down
     uploadImage: upload image
+  useSamples:
+  

@@ -20,9 +20,7 @@ part 'parts/scale_buttons.dart';
 part 'parts/upload_button.dart';
 
 class MemeGeneratorScreen extends StatelessWidget {
-  const MemeGeneratorScreen({
-    Key? key,
-  }) : super(key: key);
+  const MemeGeneratorScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

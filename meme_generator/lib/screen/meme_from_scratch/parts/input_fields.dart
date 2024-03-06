@@ -13,17 +13,19 @@ class InputFieldsState extends State<InputFields> {
     final textStore = getIt<TextStore>();
     final imageStore = getIt<ImageStore>();
 
+    InputDecoration inputDecoration(String text) => InputDecoration(
+        filled: true,
+        fillColor: Colors.grey.withAlpha(30),
+        hintText: text,
+        hintStyle: const TextStyle(color: AppColors.mainWhite));
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         TextField(
           style: const TextStyle(color: AppColors.mainWhite),
           onChanged: (value) => textStore.textHolderProvider.tappingText(value),
-          decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.grey.withAlpha(30),
-              hintText: t.screen.fromScratch.typeInscription,
-              hintStyle: const TextStyle(color: AppColors.mainWhite)),
+          decoration: inputDecoration(t.screen.fromScratch.typeInscription),
         ),
         Space.v10,
         TextField(
@@ -32,11 +34,7 @@ class InputFieldsState extends State<InputFields> {
             imageStore.imageHolderProvider.prepareToLink();
             imageStore.imageHolderProvider.inputNetworkImage(value);
           },
-          decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.grey.withAlpha(30),
-              hintText: t.screen.fromScratch.pasteImageLink,
-              hintStyle: const TextStyle(color: AppColors.mainWhite)),
+          decoration: inputDecoration(t.screen.fromScratch.pasteImageLink),
         ),
       ],
     );
