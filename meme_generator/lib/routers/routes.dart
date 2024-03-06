@@ -8,27 +8,17 @@ import 'package:meme_generator/screen/widgets/constants.dart';
 
 enum MainRoutes { home, createNew, chooseSample }
 
-String mainRoutesName(MainRoutes name) {
-  switch (name) {
-    case MainRoutes.home:
-      return 'HomeScreen';
-    case MainRoutes.createNew:
-      return 'CreateNewMemeScreen';
-    case MainRoutes.chooseSample:
-      return 'ChooseSampleMemeScreen';
-  }
-}
+String mainRoutesName(MainRoutes name) => switch (name) {
+      MainRoutes.home => 'HomeScreen',
+      MainRoutes.createNew => 'CreateNewMemeScreen',
+      MainRoutes.chooseSample => 'ChooseSampleMemeScreen',
+    };
 
-String mainRoutesPath(MainRoutes name) {
-  switch (name) {
-    case MainRoutes.home:
-      return '/home';
-    case MainRoutes.createNew:
-      return '/create_new';
-    case MainRoutes.chooseSample:
-      return '/choose_sample';
-  }
-}
+String mainRoutesPath(MainRoutes name) => switch (name) {
+      MainRoutes.home => '/home',
+      MainRoutes.createNew => '/create_new',
+      MainRoutes.chooseSample => '/choose_sample',
+    };
 
 class MainNavigation implements MyAppNavigation {
   @override
