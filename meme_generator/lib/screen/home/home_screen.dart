@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meme_generator/i18n/strings.g.dart';
 import 'package:meme_generator/routers/routes.dart';
 import 'package:meme_generator/screen/widgets/constants.dart';
 import 'package:meme_generator/screen/widgets/shared_content.dart';
@@ -15,9 +16,9 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
-          title: const Text(
-            'How to create meme?',
-            style: TextStyle(
+          title: Text(
+            t.screen.home.HowToCreateMeme,
+            style: const TextStyle(
               color: AppColors.mainWhite,
             ),
           ),
@@ -34,21 +35,21 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   TappingContainer(
                     borderColor: AppColors.mainGreen,
-                    text: 'From scratch',
+                    text: t.screen.home.fromScratch,
                     onTap: () =>
                         context.pushNamed(mainRoutesName(MainRoutes.createNew)),
                   ),
                   Space.v5,
-                  const Center(
+                  Center(
                     child: Text(
-                      'Tap to your fighter',
-                      style: TextStyle(color: AppColors.mainWhite),
+                      t.screen.home.tapToFighter,
+                      style: const TextStyle(color: AppColors.mainWhite),
                     ),
                   ),
                   Space.v5,
                   TappingContainer(
                     borderColor: AppColors.mainBlue,
-                    text: 'Use samples',
+                    text: t.screen.home.useSamples,
                     onTap: () => context
                         .pushNamed(mainRoutesName(MainRoutes.chooseSample)),
                   ),

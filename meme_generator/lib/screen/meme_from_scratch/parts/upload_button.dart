@@ -8,7 +8,7 @@ class _UploadButton extends StatelessWidget {
     final imageStore = getIt<ImageStore>();
 
     return ElevatedButton.icon(
-        label: const Text('upload image'),
+        label: Text(t.screen.fromScratch.uploadImage),
         icon: const Icon(Icons.photo_library_outlined),
         onPressed: () async {
           imageStore.imageHolderProvider.prepareToUpload();

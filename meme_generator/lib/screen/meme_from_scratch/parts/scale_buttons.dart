@@ -15,14 +15,14 @@ class _ScaleButtons extends StatelessWidget {
               onPressed: () => textHolder.textHolder.fontFlag.value != 2
                   ? textHolder.textHolderProvider.textScaleUp()
                   : {},
-              child: const Text("Text scale Up")),
+              child: Text(t.screen.fromScratch.textScaleDown)),
           Space.h10,
           ElevatedButton(
             style: scaleButtonDecoration,
             onPressed: () => textHolder.textHolder.fontFlag.value != 1
                 ? textHolder.textHolderProvider.textScaleDown()
                 : {},
-            child: const Text("Text scale Down"),
+            child: Text(t.screen.fromScratch.textScaleDown),
           ),
         ],
       ),

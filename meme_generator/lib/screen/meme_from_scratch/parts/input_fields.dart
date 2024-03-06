@@ -22,7 +22,7 @@ class InputFieldsState extends State<InputFields> {
           decoration: InputDecoration(
               filled: true,
               fillColor: Colors.grey.withAlpha(30),
-              hintText: 'Type inscription of meme...',
+              hintText: t.screen.fromScratch.typeInscription,
               hintStyle: const TextStyle(color: AppColors.mainWhite)),
         ),
         Space.v10,
@@ -35,7 +35,7 @@ class InputFieldsState extends State<InputFields> {
           decoration: InputDecoration(
               filled: true,
               fillColor: Colors.grey.withAlpha(30),
-              hintText: 'Paste image link',
+              hintText: t.screen.fromScratch.pasteImageLink,
               hintStyle: const TextStyle(color: AppColors.mainWhite)),
         ),
       ],

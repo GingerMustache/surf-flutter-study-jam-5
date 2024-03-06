@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:meme_generator/domain/entity/image_holder.dart';
+import 'package:meme_generator/i18n/strings.g.dart';
 import 'package:meme_generator/screen/widgets/constants.dart';
 import 'package:meme_generator/screen/widgets/shared_content.dart';
 import 'package:meme_generator/services/permission_service.dart';
@@ -35,9 +36,9 @@ class MemeGeneratorScreen extends StatelessWidget {
           ),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        title: const Text(
-          'Meme From Scratch',
-          style: TextStyle(
+        title: Text(
+          t.screen.fromScratch.memeFromScratch,
+          style: const TextStyle(
             color: AppColors.mainWhite,
           ),
         ),

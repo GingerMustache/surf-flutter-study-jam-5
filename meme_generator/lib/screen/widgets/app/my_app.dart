@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:meme_generator/i18n/strings.g.dart';
 import 'package:meme_generator/screen/widgets/constants.dart';
 import 'package:meme_generator/theme/colors.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 abstract class MyAppNavigation {
   GoRouter get router;
@@ -27,6 +29,9 @@ class MyApp extends StatelessWidget {
         ),
       ),
       routerConfig: navigation.router,
+      locale: TranslationProvider.of(context).flutterLocale, // use provider
+      supportedLocales: AppLocaleUtils.supportedLocales,
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
     );
   }
 }

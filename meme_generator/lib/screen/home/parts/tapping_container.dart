@@ -29,7 +29,7 @@ class TappingContainer extends StatelessWidget {
               text,
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 40,
+                fontSize: 35,
               ),
             ),
           ),

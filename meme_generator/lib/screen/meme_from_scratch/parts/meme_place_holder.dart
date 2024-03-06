@@ -87,10 +87,10 @@ class _StockMemeImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
+    return Center(
       child: Text(
-        "meme picture",
-        style: TextStyle(
+        t.screen.fromScratch.memePicture,
+        style: const TextStyle(
           fontSize: 20,
           color: AppColors.mainWhite,
         ),

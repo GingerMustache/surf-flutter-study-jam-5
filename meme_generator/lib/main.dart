@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meme_generator/di_container/di_container.dart';
+import 'package:meme_generator/i18n/strings.g.dart';
 
 abstract class AppFactory {
   Widget makeApp();
@@ -12,5 +13,5 @@ void main() async {
   final app = appFactory.makeApp();
   initStores();
 
-  runApp(app);
+  runApp(TranslationProvider(child: app));
 }
