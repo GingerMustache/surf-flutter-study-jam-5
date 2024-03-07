@@ -4,6 +4,7 @@ import 'package:meme_generator/domain/data_providers/text_holder_provider.dart';
 import 'package:meme_generator/domain/entity/image_holder.dart';
 import 'package:meme_generator/domain/entity/text_holder.dart';
 import 'package:meme_generator/routers/routes.dart';
+import 'package:meme_generator/screen/meme_from_scratch/meme_from_scratch_store.dart';
 import 'package:meme_generator/screen/meme_from_scratch/meme_generator_screen.dart';
 import 'package:meme_generator/screen/widgets/app/my_app.dart';
 import 'package:meme_generator/screen/widgets/constants.dart';
