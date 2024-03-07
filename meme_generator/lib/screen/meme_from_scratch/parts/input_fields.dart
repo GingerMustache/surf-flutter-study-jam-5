@@ -10,8 +10,7 @@ class InputFields extends StatefulWidget {
 class InputFieldsState extends State<InputFields> {
   @override
   Widget build(BuildContext context) {
-    final textStore = getIt<TextStore>();
-    final imageStore = getIt<ImageStore>();
+    final memeFromScratchStore = getIt<MemeFromScratchStore>();
 
     InputDecoration inputDecoration(String text) => InputDecoration(
         filled: true,
@@ -24,15 +23,15 @@ class InputFieldsState extends State<InputFields> {
       children: [
         TextField(
           style: const TextStyle(color: AppColors.mainWhite),
-          onChanged: (value) => textStore.textHolderProvider.tappingText(value),
+          onChanged: (value) => memeFromScratchStore.tappingText(value),
           decoration: inputDecoration(t.screen.fromScratch.typeInscription),
         ),
         Space.v10,
         TextField(
           style: const TextStyle(color: AppColors.mainWhite),
           onSubmitted: (value) {
-            imageStore.imageHolderProvider.prepareToLink();
-            imageStore.imageHolderProvider.inputNetworkImage(value);
+            memeFromScratchStore.prepareToLink();
+            memeFromScratchStore.inputNetworkImage(value);
           },
           decoration: inputDecoration(t.screen.fromScratch.pasteImageLink),
         ),

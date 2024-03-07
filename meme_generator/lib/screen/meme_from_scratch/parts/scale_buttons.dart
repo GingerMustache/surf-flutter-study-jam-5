@@ -5,22 +5,24 @@ class _ScaleButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textHolder = getIt<TextStore>();
+    final memeFromScratchStore = getIt<MemeFromScratchStore>();
+
     return Center(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           ElevatedButton(
               style: scaleButtonDecoration,
-              onPressed: () => textHolder.textHolder.fontFlag.value != 2
-                  ? textHolder.textHolderProvider.textScaleUp()
-                  : {},
+              onPressed: () =>
+                  memeFromScratchStore.fontFlag != ScaleAbility.down
+                      ? memeFromScratchStore.textScaleUp()
+                      : {},
               child: Text(t.screen.fromScratch.textScaleDown)),
           Space.h10,
           ElevatedButton(
             style: scaleButtonDecoration,
-            onPressed: () => textHolder.textHolder.fontFlag.value != 1
-                ? textHolder.textHolderProvider.textScaleDown()
+            onPressed: () => memeFromScratchStore.fontFlag != ScaleAbility.up
+                ? memeFromScratchStore.textScaleDown()
                 : {},
             child: Text(t.screen.fromScratch.textScaleDown),
           ),

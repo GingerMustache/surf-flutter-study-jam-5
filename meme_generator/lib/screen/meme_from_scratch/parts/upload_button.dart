@@ -5,24 +5,12 @@ class _UploadButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final imageStore = getIt<ImageStore>();
+    final memeFromScratchStore = getIt<MemeFromScratchStore>();
 
     return ElevatedButton.icon(
-        label: Text(t.screen.fromScratch.uploadImage),
-        icon: const Icon(Icons.photo_library_outlined),
-        onPressed: () async {
-          imageStore.imageHolderProvider.prepareToUpload();
-
-          PermissionService().camera(
-            context,
-            () async {
-              String photo = await PhotoService().getImageGallery();
-              if (photo.isNotEmpty) {
-                runInAction(
-                    () => imageStore.imageHolder.imageLink.value = photo);
-              }
-            },
-          );
-        });
+      label: Text(t.screen.fromScratch.uploadImage),
+      icon: const Icon(Icons.photo_library_outlined),
+      onPressed: () => memeFromScratchStore.uploadImageFromDevice(context),
+    );
   }
 }

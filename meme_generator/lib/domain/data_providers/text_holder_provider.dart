@@ -22,9 +22,11 @@ class TextHolderProviderDefault implements TextHolderProvider {
   @override
   void textScaleUp() {
     runInAction(() {
-      if (textHolder.fontSize.value >= 60) textHolder.fontFlag.value = 2;
-      if (textHolder.fontFlag.value != 2) {
-        textHolder.fontFlag.value = 0;
+      if (textHolder.fontSize.value >= 60) {
+        textHolder.fontFlag.value = ScaleAbility.down;
+      }
+      if (textHolder.fontFlag.value != ScaleAbility.down) {
+        textHolder.fontFlag.value = ScaleAbility.upAndDown;
         textHolder.fontSize.value += 2;
       }
     });
@@ -33,9 +35,11 @@ class TextHolderProviderDefault implements TextHolderProvider {
   @override
   void textScaleDown() {
     runInAction(() {
-      if (textHolder.fontSize.value <= 25) textHolder.fontFlag.value = 1;
-      if (textHolder.fontFlag.value != 1) {
-        textHolder.fontFlag.value = 0;
+      if (textHolder.fontSize.value <= 25) {
+        textHolder.fontFlag.value = ScaleAbility.up;
+      }
+      if (textHolder.fontFlag.value != ScaleAbility.up) {
+        textHolder.fontFlag.value = ScaleAbility.upAndDown;
         textHolder.fontSize.value -= 2;
       }
     });
